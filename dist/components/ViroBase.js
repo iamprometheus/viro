@@ -109,8 +109,8 @@ class ViroBase extends React.Component {
     getBoundingBoxAsync = async () => {
         return await react_native_1.NativeModules.VRTNodeModule.getBoundingBox((0, react_native_1.findNodeHandle)(this));
     };
-    applyImpulse = (force, position) => {
-        react_native_1.NativeModules.VRTNodeModule.applyImpulse((0, react_native_1.findNodeHandle)(this), force, position);
+    applyImpulse = (force) => {
+        react_native_1.NativeModules.VRTNodeModule.applyImpulse((0, react_native_1.findNodeHandle)(this), force.value, force.position);
     };
     applyTorqueImpulse = (torque) => {
         react_native_1.NativeModules.VRTNodeModule.applyTorqueImpulse((0, react_native_1.findNodeHandle)(this), torque);

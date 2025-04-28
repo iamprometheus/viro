@@ -2,7 +2,7 @@ import * as React from "react";
 import { NativeSyntheticEvent } from "react-native";
 import { ViroCommonProps, ViroObjectProps } from "./AR/ViroCommonProps";
 import { ViroHoverEvent, ViroClickEvent, ViroClickStateEvent, ViroTouchEvent, ViroScrollEvent, ViroSwipeEvent, ViroPinchEvent, ViroRotateEvent, ViroDragEvent, ViroFuseEvent, ViroAnimationStartEvent, ViroAnimationFinishEvent, ViroCollisionEvent, ViroNativeTransformUpdateEvent, ViroErrorEvent } from "./Types/ViroEvents";
-import { ViroNativeRef, ViroForce, Viro3DPoint, ViroTorque, ViroVelocity } from "./Types/ViroUtils";
+import { ViroNativeRef, ViroForce, ViroTorque, ViroVelocity } from "./Types/ViroUtils";
 export type ViroBaseProps = ViroCommonProps & ViroObjectProps;
 export declare class ViroBase<T> extends React.Component<ViroBaseProps & T> {
     _component: ViroNativeRef;
@@ -21,7 +21,7 @@ export declare class ViroBase<T> extends React.Component<ViroBaseProps & T> {
     _onError: (event: NativeSyntheticEvent<ViroErrorEvent>) => void;
     getTransformAsync: () => Promise<any>;
     getBoundingBoxAsync: () => Promise<any>;
-    applyImpulse: (force: ViroForce, position: Viro3DPoint) => void;
+    applyImpulse: (force: ViroForce) => void;
     applyTorqueImpulse: (torque: ViroTorque) => void;
     setVelocity: (velocity: ViroVelocity) => void;
     _onCollision: (event: NativeSyntheticEvent<ViroCollisionEvent>) => void;

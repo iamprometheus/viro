@@ -157,11 +157,11 @@ export class ViroBase<T> extends React.Component<ViroBaseProps & T> {
     );
   };
 
-  applyImpulse = (force: ViroForce, position: Viro3DPoint) => {
+  applyImpulse = (force: ViroForce) => {
     NativeModules.VRTNodeModule.applyImpulse(
       findNodeHandle(this),
-      force,
-      position
+      force.value,
+      force.position
     );
   };
 

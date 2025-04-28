@@ -83,8 +83,8 @@ export class ViroButton extends React.Component<Props, State> {
     buttonType: ViroButtonStateTypes.BTN_TYPE_NORMAL,
   };
 
-  applyImpulse = (force: ViroForce, atPosition: Viro3DPoint) => {
-    this._component?.applyImpulse(force, atPosition);
+  applyImpulse = (force: ViroForce) => {
+    this._component?.applyImpulse(force);
   };
 
   applyTorqueImpulse = (torque: ViroTorque) => {

@@ -31,6 +31,15 @@ export type ViroRotation = [
 ];
 
 /**
+ * 3D Vector, stored as [x, y, z].
+ */
+export type Viro3DVector = [
+  number, // x component
+  number, // y component
+  number // z component
+];
+
+/**
  * The scale of the container in 3D space, specified as [x,y,z]. A scale of
  * 1 represents the current size of the container. A scale value of < 1
  * will make the container proportionally smaller while a value >1 will make
@@ -98,19 +107,18 @@ export type ViroPhysicsBody = {
    * If an array of forces is provided, the corresponding net force will be applied.
    * Force units are in newtons.
    */
-  force?: number[];
+  force?: ViroForce[];
   /**
-   * A single torque vector or an array of torque vectors applied to the physics body.
-   * If an array of torque is provided, the corresponding net torque will be applied.
+   * A single 3D torque vector applied to the physics body.
    * Torque units are in newton meters.
    */
-  torque?: number[];
+  torque?: ViroTorque;
   /**
    * Used to directly move an object without applying a force.
    * Units are m/s. Doing so will override any forces that are already
    * applied on this physics body.
    */
-  velocity?: number[];
+  velocity?: Viro3DVector;
 };
 
 export type ViroPhysicsBodyType = "Dynamic" | "Kinematic" | "Static";
@@ -123,13 +131,12 @@ export type ViroPhysicsBodyShape = {
 export type ViroPhysicsBodyShapeType = "Box" | "Sphere" | "Compound";
 
 /**
- * A single force vector or an array of force vectors applied to the physics body.
- * If an array of forces is provided, the corresponding net force will be applied.
+ * A single force vector applied to the physics body.
  * Force units are in newtons.
  */
 export type ViroForce = {
-  value: Array<number>;
-  position: Array<number>;
+  value: Viro3DVector;
+  position: Viro3DPoint;
 };
 
 export type ViroSource = ImageSourcePropType;
@@ -145,15 +152,19 @@ export type ViroSoundRoom = {
 };
 
 export type ViroPhysicsWorld = {
-  gravity: number;
+  gravity: Viro3DVector;
   drawBounds?: boolean;
 };
 
-export type ViroRay = any;
+export type ViroRay = Viro3DVector;
 
-export type ViroTorque = any;
+/**
+ * A single 3D torque vector applied to the physics body.
+ * Torque units are in newton meters.
+ */
+export type ViroTorque = Viro3DVector;
 
-export type ViroVelocity = any;
+export type ViroVelocity = Viro3DVector;
 
 export type Viro2DPoint = [number, number];
 
